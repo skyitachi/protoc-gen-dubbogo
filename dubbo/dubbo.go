@@ -65,7 +65,6 @@ func (d *dubbogo) Generate(file *generator.FileDescriptor) {
 	}
 
 	contextPkg = string(d.gen.AddImport(contextPkgPath))
-	d.gen.AddImport(dubbogoPkgPath)
 	d.gen.AddImport(errorPkgPath)
 	d.gen.AddImport(configPkgPath)
 
@@ -122,7 +121,7 @@ func (d *dubbogo) generateService(file *generator.FileDescriptor, service *pb.Se
     unimplementedStubMethods = append(unimplementedStubMethods, unimplemented)
 
     methodName := method.GetName()
-    returnType := d.typeName(method.GetInputType())
+    returnType := d.typeName(method.GetOutputType())
     reqType := d.typeName(method.GetInputType())
     stubMethod := d.generateServerStubMethod(stubName, methodName, contextPkg, returnType, reqType)
     serverStubMethods = append(serverStubMethods, stubMethod)
