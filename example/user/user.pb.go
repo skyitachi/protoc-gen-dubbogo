@@ -4,13 +4,13 @@
 package user
 
 import (
-  context "context"
-  fmt "fmt"
-  config "github.com/apache/dubbo-go/config"
-  proto "github.com/golang/protobuf/proto"
-  timestamp "github.com/golang/protobuf/ptypes/timestamp"
-  errors "github.com/pkg/errors"
-  math "math"
+	context "context"
+	fmt "fmt"
+	config "github.com/apache/dubbo-go/config"
+	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	errors "github.com/pkg/errors"
+	math "math"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -50,7 +50,6 @@ func (m *UserRequest) XXX_Merge(src proto.Message) {
 func (m *UserRequest) XXX_Size() int {
 	return xxx_messageInfo_UserRequest.Size(m)
 }
-
 func (m *UserRequest) XXX_DiscardUnknown() {
 	xxx_messageInfo_UserRequest.DiscardUnknown(m)
 }
@@ -193,7 +192,7 @@ type UserProviderServerStub struct {
 	stub UserProviderServer
 }
 
-func (s *UserProviderServerStub) GetUser(ctx context.Context, data []byte) (*UserRequest, error) {
+func (s *UserProviderServerStub) GetUser(ctx context.Context, data []byte) (*UserReply, error) {
 	req := &UserRequest{}
 	buf := proto.Buffer{}
 	buf.SetBuf(data)
